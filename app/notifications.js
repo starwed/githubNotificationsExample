@@ -1,4 +1,4 @@
-var NotificationReason;
+"use strict";
 (function (NotificationReason) {
     NotificationReason[NotificationReason["subscribed"] = 1] = "subscribed";
     NotificationReason[NotificationReason["manual"] = 2] = "manual";
@@ -8,5 +8,6 @@ var NotificationReason;
     NotificationReason[NotificationReason["team_mention"] = 6] = "team_mention";
     NotificationReason[NotificationReason["state_change"] = 7] = "state_change";
     NotificationReason[NotificationReason["assign"] = 8] = "assign";
-})(NotificationReason || (NotificationReason = {}));
+})(exports.NotificationReason || (exports.NotificationReason = {}));
+var NotificationReason = exports.NotificationReason;
 //# sourceMappingURL=notifications.js.map

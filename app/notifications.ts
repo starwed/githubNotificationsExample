@@ -1,4 +1,6 @@
-enum NotificationReason {
+import {JiraLink} from './jiraLinkParser'
+
+export enum NotificationReason {
     subscribed = 1,
     manual,
     author,
@@ -9,27 +11,30 @@ enum NotificationReason {
     assign
 }
 
-interface NotificationWrapper {
+
+export interface NotificationWrapper {
     notification: Notification;
-    links?: Dict<string>;
+    links?: JiraLink[];
+    githubLink: string;
 }
 
-interface Notification {
+export interface Notification {
     id: string;
     reason: string;
     unread: boolean;
     subject: Subject;
-    repository?: Repo;
-    updatred_at?: Date;
+    repository: Repo;
+    updated_at: Date;
 }
 
 
-interface Subject {
+export interface Subject {
     title: string;
     type?: string;
+    url: string;
 }
 
-interface Repo {
+export interface Repo {
     name: string;
     full_name: string;
     html_url: string;
