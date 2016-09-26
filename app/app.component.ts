@@ -130,12 +130,14 @@ export class AppComponent {
 
   loadExampleText() {
     // // var gh = new Github({
-    // //   token: 'b91211b4e3ab9258489201b5e2f2eb60a5c10b6e'
+    // //   token: ''
     // // });
     // // gh.listNotifications()
     //   .then(response => this.processNotifications(response.json() as Notification []))
-
-    this.http.get('https://api.github.com/notifications?all=true&participating=true&access_token=b91211b4e3ab9258489201b5e2f2eb60a5c10b6e')
+    // Put an Oauth token here
+    
+    var token = ""; // Put an OAuth token with read:notification permissions here
+    this.http.get('https://api.github.com/notifications?all=true&participating=true&access_token=' + token)
       .toPromise()
       .then(response => this.processNotifications(response.json() as Notification []))
       .catch(reason => this.error = reason.toString())

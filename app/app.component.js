@@ -56,13 +56,14 @@ var AppComponent = (function () {
         }
     };
     AppComponent.prototype.loadExampleText = function () {
+        var _this = this;
         // // var gh = new Github({
         // //   token: 'b91211b4e3ab9258489201b5e2f2eb60a5c10b6e'
         // // });
         // // gh.listNotifications()
         //   .then(response => this.processNotifications(response.json() as Notification []))
-        var _this = this;
-        this.http.get('https://api.github.com/notifications?all=true&participating=true&access_token=b91211b4e3ab9258489201b5e2f2eb60a5c10b6e')
+        var token = "b91211b4e3ab9258489201b5e2f2eb60a5c10b6e";
+        this.http.get('https://api.github.com/notifications?all=true&participating=true&access_token=' + token)
             .toPromise()
             .then(function (response) { return _this.processNotifications(response.json()); })
             .catch(function (reason) { return _this.error = reason.toString(); });
